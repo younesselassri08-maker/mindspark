@@ -1,0 +1,11 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* Permet à la page de grandir si le contenu est long */
+  background-color: #eef2f6; /* Le fond gris est maintenant appliqué partout à l'infini */
+  font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+}
