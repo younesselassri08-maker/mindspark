@@ -20,6 +20,9 @@ PORT=5001
 GROQ_API_KEY=your_groq_api_key_here
 SMTP_EMAIL=your_email@gmail.com
 SMTP_PASSWORD=your_app_password_here
+```  <-- C'est cette ligne (```) qu'il faut rajouter !
+
+---
 2. 📧 Configuring the OTP Email Verification System
 The MindSpark application includes a user verification system that sends an OTP (One-Time Password) via email.
 
