@@ -580,8 +580,8 @@ const transporter = nodemailer.createTransport({
     port: 587,              // 👈 Port de sécurité standard
     secure: false,           // 👈 Obligatoire pour le port 465
     auth: {
-        user: 'younesselassri08@gmail.com', // 👈 Remplace par ton email
-        pass: 'hnuc hnnb oygx qpge' // 👈 Remplace par ton mot de passe d'app
+        user: process.env.SMTP_EMAIL, // 👈 Remplace par ton email
+        pass: process.env.SMTP_PASSWORD // 👈 Remplace par ton mot de passe d'app
     },
     // 🌟 L'astuce magique qui empêche le blocage de ta box/antivirus :
     tls: {
