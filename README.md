@@ -3,17 +3,23 @@
 This file serves as the technical documentation for the local installation of the MindSpark project.
 
 ### 1. Prerequisites and Environment Setup
-The system requires the prior installation of Git, **Node.js (v18.0.0 or higher recommended)**, and npm on the target machine. It is also crucial to configure the local environment to connect the various services (Firebase, Groq, SMTP). Create a `.env` file in the `backend` directory with the following variables:
+The system requires the prior installation of Git, **Node.js (v18.0.0 or higher recommended)**, and npm on the target machine. 
 
-| Variable Name | Description |
-| :--- | :--- |
-| `GROQ_API_KEY` | Groq Cloud API key for LLM inference |
-| `SMTP_EMAIL` | Gmail address for OTP dispatch |
-| `SMTP_PASSWORD` | Google App Password |
-| `FIREBASE_API_KEY` | Firestore project configuration and secret key |
-| `PORT` | Backend server listening port |
+**⚠️ CRITICAL: Security & Authentication Files**
+For security reasons and to comply with Google Cloud and Groq safety standards, sensitive API keys and database credentials are strictly excluded from this public repository. 
 
-> **Security Note:** It is imperative to ensure that the `.env` file and the `node_modules/` directory are listed in the `.gitignore` file to never expose private keys publicly.
+To run this project locally, the evaluator must obtain the environment configuration files provided privately alongside the project submission.
+
+**Setup Instructions:**
+1. Locate the private configuration files provided by the author (`.env` and `serviceAccountKey.json`).
+2. Place the `.env` file inside the `backend/` directory. It should contain the following variables:
+   * `GROQ_API_KEY`: Groq Cloud API key for LLM inference
+   * `SMTP_EMAIL`: Gmail address for OTP dispatch
+   * `SMTP_PASSWORD`: Google App Password
+   * `PORT`: Backend server listening port
+3. Place the `serviceAccountKey.json` file inside the `backend/` directory. This file contains the Firestore project configuration and private key required for database authentication.
+
+Failure to include these two files in the `backend/` directory will result in a `16 UNAUTHENTICATED` error or a server crash upon launch.
 
 ---
 
@@ -22,7 +28,7 @@ This project was initially developed on macOS, where port `5000` is reserved by 
 
 If you are running this project on a **Windows machine**, it is standard to use port `5000`. Please make the following adjustments:
 1. In your backend `.env` file, set `PORT=5000`.
-2. In the frontend React code (specifically in your API service files or Axios configurations), carefully replace any hardcoded `http://localhost:5001` URLs with `http://localhost:5000` to ensure proper Client-Server communication.
+2. In the frontend React code, carefully replace any hardcoded `http://localhost:5001` URLs with `http://localhost:5000` to ensure proper Client-Server communication.
 
 ---
 
